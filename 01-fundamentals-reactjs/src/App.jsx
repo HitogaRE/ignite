@@ -1,20 +1,32 @@
 // JSX = JavaScript + XML (HTML)
-import { Post } from './Post'
+import { Post } from './Post';
 import { Header } from './components/Header';
 
-import './styles.css';
+import styles from './App.module.css';
+
+import './global.css';
+
+import { Sidebar } from './components/Sidebar';
+
 
 export function App() {
   return (
     <div>
       <Header />
 
-      <Post 
-        author="Ramon Dino" 
-        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam pariatur facilis itaque quaerat quis, temporibus nobis. Iure similique porro expedita explicabo sunt rerum, a suscipit esse inventore ut error autem?"
-      />
+      <div className={styles.wrapper}>
+        <Sidebar />
+        <main>
+          <Post
+            author="Ramon Dino"
+            content="em ipsum dolor sit amet consectetur, adipisicing elit. Quaerat ipsam reprehenderit, ea ducimus tempora nisi ut quis repudiandae itaque nihil dignissimos quae nemo natus ab totam repellendus maxime amet ratione."
+          /> 
+          <Post
+            author="Adalto Pereira"
+            content="em ipsum dolor sit amet consectetur, adipisicing elit. Quaerat ipsam reprehenderit, ea ducimus tempora nisi ut quis repudiandae itaque nihil dignissimos quae nemo natus ab totam repellendus maxime amet ratione."
+          />          
+        </main>    
+      </div>
     </div>
   )
 }
-
-
