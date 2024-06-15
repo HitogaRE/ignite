@@ -1,5 +1,5 @@
 // JSX = JavaScript + XML (HTML)
-import { Post } from './components/Post';
+import { Post, PostType } from './components/Post';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 
@@ -7,7 +7,7 @@ import styles from './App.module.css';
 
 import './global.css';
 
-const posts = [
+const posts: PostType[] = [
   {
     id: 1,
     author: {
@@ -20,7 +20,7 @@ const posts = [
      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',},
      { type: 'link', content: 'jane.design/doctorcare'},    
     ],
-    publishedAt: new Date('2110-09-11 22:59:59'),
+    publishedAt: new Date('2024-06-12 20:20:59'),
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const posts = [
      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu Face. É um projeto que fiz no jQuest, evento da feira. O nome do projeto Kabummmmm!!!',},
      { type: 'link', content: 'jane.Ramon/Feiras'},    
     ],
-    publishedAt: new Date('2112-09-12 11:59:59'),
+    publishedAt: new Date('2024-06-11 17:20:59'),
   },
 ]
 
@@ -50,9 +50,8 @@ export function App() {
           {posts.map(post => {
             return (
               <Post
-                author={post.author}
-                content={post.content}
-                publishedAt={post.publishedAt}
+              key={post.id}
+              post={post}
               />  
             )
           })}
